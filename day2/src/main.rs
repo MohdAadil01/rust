@@ -70,12 +70,72 @@
 //     // println!("{}, {}", s, r2);
 // }
 
+// fn main() {
+//     let reference_to_nothing = dangle();
+// }
+
+// fn dangle() -> &String {
+//     let s = String::from("hello");
+
+//     &s
+// }
+
+// fn main() {
+//     let mut a: Vec<i32> = Vec::new();
+//     a.push(1);
+//     a.push(2);
+//     a.push(3);
+//     println!("{:?}", a);
+//     even(&mut a);
+//     println!("Modified vector (only evens): {:?}", a);
+// }
+
+// fn even(a: &mut Vec<i32>) {
+//     let mut i = 0;
+//     while i < a.len() {
+//         if a[i] % 2 != 0 {
+//             a.remove(i);
+//         } else {
+//             i += 1;
+//         }
+//     }
+// }
+
+use std::{collections::HashMap, string};
+
+// fn main() {
+//     let mut users: HashMap<String, i32> = HashMap::new();
+//     users.insert(String::from("user_1"), 21);
+//     users.insert(String::from("user_2"), 43);
+
+//     let first_user: Option<&i32> = users.get("user_1");
+
+//     match first_user {
+//         Some(age) => println!("{age}"),
+//         None => println!("None"),
+//     }
+// }
+
 fn main() {
-    let reference_to_nothing = dangle();
+    let mut users: Vec<(String, i32)> = vec![
+        (String::from("user_1"), 21),
+        (String::from("user_2"), 25),
+        (String::from("user_3"), 30),
+        (String::from("user_4"), 18),
+        (String::from("user_5"), 22),
+        (String::from("user_6"), 27),
+    ];
+
+    let users_details: HashMap<String, i32> = func(users);
+    for (user, age) in users_details {
+        println!("User: {user}, age: {age}");
+    }
 }
 
-fn dangle() -> &String {
-    let s = String::from("hello");
-
-    &s
+fn func(users: Vec<(String, i32)>) -> HashMap<String, i32> {
+    let mut users_details: HashMap<String, i32> = HashMap::new();
+    for (user, age) in users {
+        users_details.insert(user, age);
+    }
+    return users_details;
 }
