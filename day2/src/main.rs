@@ -30,13 +30,52 @@
 //     println!("x = {x}, y = {y}");
 // }
 
+// fn main() {
+//     let mut s: String = String::from("Hi");
+//     s = take_ownership(s);
+//     // ? if i try to access s here, i wont be able to get because the string has been moved to str means the ownernhip of value hi is moved to str;
+//     println!("{s}");
+// }
+// fn take_ownership(str: String) -> String {
+//     println!("{str}");
+//     return str;
+// }
+
+// fn main() {
+//     let str: String = String::from("HI there");
+//     let len: usize = get_length(&str);
+//     println!("The length of the string {str} is {len}");
+// }
+// fn get_length(s: &String) -> usize {
+//     return s.len();
+// }
+
+// fn main() {
+//     let mut s = String::from("hello");
+
+//     change(&mut s);
+//     println!("{s}");
+// }
+
+// fn change(some_string: &mut String) {
+//     some_string.push_str(", world");
+// }
+
+// fn main() {
+//     let mut s = String::from("hello");
+//     {
+//         let r1 = &mut s;
+//     }
+//     let r2 = &mut s;
+//     // println!("{}, {}", s, r2);
+// }
+
 fn main() {
-    let mut s: String = String::from("Hi");
-    s = take_ownership(s);
-    // ? if i try to access s here, i wont be able to get because the string has been moved to str means the ownernhip of value hi is moved to str;
-    println!("{s}");
+    let reference_to_nothing = dangle();
 }
-fn take_ownership(str: String) -> String {
-    println!("{str}");
-    return str;
+
+fn dangle() -> &String {
+    let s = String::from("hello");
+
+    &s
 }
