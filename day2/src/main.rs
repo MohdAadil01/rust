@@ -116,26 +116,48 @@ use std::{collections::HashMap, string};
 //     }
 // }
 
+// fn main() {
+//     let mut users: Vec<(String, i32)> = vec![
+//         (String::from("user_1"), 21),
+//         (String::from("user_2"), 25),
+//         (String::from("user_3"), 30),
+//         (String::from("user_4"), 18),
+//         (String::from("user_5"), 22),
+//         (String::from("user_6"), 27),
+//     ];
+
+//     let users_details: HashMap<String, i32> = func(users);
+//     for (user, age) in users_details {
+//         println!("User: {user}, age: {age}");
+//     }
+// }
+
+// fn func(users: Vec<(String, i32)>) -> HashMap<String, i32> {
+//     let mut users_details: HashMap<String, i32> = HashMap::new();
+//     for (user, age) in users {
+//         users_details.insert(user, age);
+//     }
+//     return users_details;
+// }
+
+// !ITERATORS
 fn main() {
-    let mut users: Vec<(String, i32)> = vec![
-        (String::from("user_1"), 21),
-        (String::from("user_2"), 25),
-        (String::from("user_3"), 30),
-        (String::from("user_4"), 18),
-        (String::from("user_5"), 22),
-        (String::from("user_6"), 27),
-    ];
+    let users: Vec<i32> = vec![2, 4, 5, 6];
 
-    let users_details: HashMap<String, i32> = func(users);
-    for (user, age) in users_details {
-        println!("User: {user}, age: {age}");
-    }
-}
+    // let user_iter = users.iter();
+    // for val in user_iter {
+    //     println!("{}", val + 1);
+    // }
+    // println!("{:?}", users);
 
-fn func(users: Vec<(String, i32)>) -> HashMap<String, i32> {
-    let mut users_details: HashMap<String, i32> = HashMap::new();
-    for (user, age) in users {
-        users_details.insert(user, age);
+    // let mut users_iter = users.iter();
+    // while let Some(val) = users_iter.next() {
+    //     println!("{}", val + 1);
+    // }
+
+    let iter = users.into_iter();
+    for val in iter {
+        println!("{val}");
     }
-    return users_details;
+    // println!("{:?}", users);
 }
