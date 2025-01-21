@@ -1,1 +1,40 @@
-/target
+# Compiled files
+/target/
+
+# Build artifacts
+**/*.rs.bk
+
+# Package files
+Cargo.lock
+*.crate
+
+# IDE and editor specific files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+*.orig
+
+# Coverage and debugging files
+/coverage/
+*.profraw
+
+# Generated documentation
+/doc/
+
+# Dependencies
+/node_modules/
+
+/*.env
+.env.*   # Environment files
